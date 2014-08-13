@@ -1,0 +1,13 @@
+0x2001[$]node_id[$]codtSInt24[$]4
+0x2002[$]lead_controller[$]codtSInt16[$]2
+0x2003[$]accuracy[$]codtSInt24[$]1000
+0x2004[$]high_edge[$]codtSInt24[$]50000
+0x2005[$]low_edge[$]codtSInt24[$]-250000
+0x2006[$]s_point1[$]codtSInt24[$]100000
+0x2007[$]s_point2[$]codtSInt24[$]50000
+0x2008[$]s_point3[$]codtSInt24[$]40000
+0x2009[$]s_point4[$]codtSInt24[$]30000
+0x200a[$]s_point5[$]codtSInt24[$]20000
+0x200b[$]s_point6[$]codtSInt24[$]10000
+0x200c[$]s_point7[$]codtSInt24[$]5000
+0x200d[$]s_point8[$]codtSInt24[$]0

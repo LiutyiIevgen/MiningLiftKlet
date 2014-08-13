@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E5BDE29-24E0-4510-97A0-2F9583A7B05E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisualizationSystem</RootNamespace>
+    <AssemblyName>VisualizationSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GlacialList1.3">
+      <HintPath>..\GlacialList1.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot, Version=2014.1.319.1, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\OxyPlot.WindowsForms.2014.1.319.1\lib\NET45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.WindowsForms, Version=2014.1.319.1, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\OxyPlot.WindowsForms.2014.1.319.1\lib\NET45\OxyPlot.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XmlSettings">
+      <HintPath>..\packages\XmlSettings.0.1.3\lib\net40\XmlSettings.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\BrakeData\CircleData.cs" />
+    <Compile Include="Model\BrakeData\FillCircleData.cs" />
+    <Compile Include="Model\BrakeData\FillPoligonData.cs" />
+    <Compile Include="Model\BrakeData\FillRectData.cs" />
+    <Compile Include="Model\BrakeData\FillTriangleData.cs" />
+    <Compile Include="Model\BrakeData\LineData.cs" />
+    <Compile Include="Model\BrakeData\PolygonData.cs" />
+    <Compile Include="Model\BrakeData\RectData.cs" />
+    <Compile Include="Model\BrakeData\RuleData.cs" />
+    <Compile Include="Model\BrakeData\RuleInscription.cs" />
+    <Compile Include="Model\BrakeData\TextData.cs" />
+    <Compile Include="Model\BrakeData\TriangleData.cs" />
+    <Compile Include="Model\DataBase\ParameterData.cs" />
+    <Compile Include="Model\DataListener.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="Model\GeneralLogData.cs" />
+    <Compile Include="Model\GraphicData\GraphicData.cs" />
+    <Compile Include="Model\IoC.cs" />
+    <Compile Include="Model\MyRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\PanelData\BorderLine.cs" />
+    <Compile Include="Model\PanelData\CageAndRuleZone.cs" />
+    <Compile Include="Model\PanelData\FillPointer.cs" />
+    <Compile Include="Model\PanelData\Pointer.cs" />
+    <Compile Include="Model\PanelData\RuleData.cs" />
+    <Compile Include="Model\PanelData\RuleInscription.cs" />
+    <Compile Include="Model\MyPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\RichTextBoxData\RichTextBoxData.cs" />
+    <Compile Include="Model\Settings\ParametersSettingsData.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CanStateService.cs" />
+    <Compile Include="Services\DataBaseService.cs" />
+    <Compile Include="Services\Settings.cs" />
+    <Compile Include="ViewModel\DefenceDiagramSettingsVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\ArhivVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\AuziDControllerParametersVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\AuziDInOutSignalsVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\BrakeBarsPictureVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\BrakeMainPictureVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\CentralSignalsDataVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\DataBoxVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\DefenceDiagramVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\GraphicVaVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\LeftDopPanelVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\LeftPanelVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\LoadDataVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\RightDopPanelVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\RightPanelVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\SpeedPanelVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\TokAnchorPanelVm.cs" />
+    <Compile Include="ViewModel\MainViewModel\TokExcitationPanelVm.cs" />
+    <Compile Include="ViewModel\ParametersSettingsVm.cs" />
+    <Compile Include="View\Forms\Archiv\FormArchiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Archiv\FormArchiv.Designer.cs">
+      <DependentUpon>FormArchiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Archiv\FormChooseSignals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Archiv\FormChooseSignals.Designer.cs">
+      <DependentUpon>FormChooseSignals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\FormCanId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\FormCanId.Designer.cs">
+      <DependentUpon>FormCanId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\FormHardwareInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\FormHardwareInformation.Designer.cs">
+      <DependentUpon>FormHardwareInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\FormStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\FormStart.Designer.cs">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormAddParameterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormAddParameterSettings.Designer.cs">
+      <DependentUpon>FormAddParameterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormChooseDefenceDiagramSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormChooseDefenceDiagramSettings.Designer.cs">
+      <DependentUpon>FormChooseDefenceDiagramSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormCodtDomainSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormCodtDomainSettings.Designer.cs">
+      <DependentUpon>FormCodtDomainSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormSettingsParol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Setting\FormSettingsParol.Designer.cs">
+      <DependentUpon>FormSettingsParol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Archiv\ArchivUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Archiv\ArchivUC.Designer.cs">
+      <DependentUpon>ArchivUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Archiv\GeneralLogArchivUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Archiv\GeneralLogArchivUC.Designer.cs">
+      <DependentUpon>GeneralLogArchivUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\AuziDUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\AuziDUC.Designer.cs">
+      <DependentUpon>AuziDUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\BrakeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\BrakeUC.Designer.cs">
+      <DependentUpon>BrakeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\CepTpUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\CepTpUC.Designer.cs">
+      <DependentUpon>CepTpUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\CycleUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\CycleUC.Designer.cs">
+      <DependentUpon>CycleUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\LogUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\LogUC.Designer.cs">
+      <DependentUpon>LogUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\MainView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\GeneralView\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\AuziDSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\AuziDSettings.Designer.cs">
+      <DependentUpon>AuziDSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\CanSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\CanSettings.Designer.cs">
+      <DependentUpon>CanSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\DebugParametersSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\DebugParametersSettings.Designer.cs">
+      <DependentUpon>DebugParametersSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\DefenceDiagramSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\DefenceDiagramSettings.Designer.cs">
+      <DependentUpon>DefenceDiagramSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\KalibrovkaSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\KalibrovkaSettings.Designer.cs">
+      <DependentUpon>KalibrovkaSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\MainViewSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\MainViewSettings.Designer.cs">
+      <DependentUpon>MainViewSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\ParametersSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\ParametersSettings.Designer.cs">
+      <DependentUpon>ParametersSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\SolveDefenceDiagramSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\Setting\SolveDefenceDiagramSettings.Designer.cs">
+      <DependentUpon>SolveDefenceDiagramSettings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\Forms\Archiv\FormArchiv.resx">
+      <DependentUpon>FormArchiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Archiv\FormChooseSignals.resx">
+      <DependentUpon>FormChooseSignals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\FormCanId.resx">
+      <DependentUpon>FormCanId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\FormHardwareInformation.resx">
+      <DependentUpon>FormHardwareInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\FormStart.resx">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Setting\FormAddParameterSettings.resx">
+      <DependentUpon>FormAddParameterSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Setting\FormChooseDefenceDiagramSettings.resx">
+      <DependentUpon>FormChooseDefenceDiagramSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Setting\FormCodtDomainSettings.resx">
+      <DependentUpon>FormCodtDomainSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Setting\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Setting\FormSettingsParol.resx">
+      <DependentUpon>FormSettingsParol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Archiv\ArchivUC.resx">
+      <DependentUpon>ArchivUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Archiv\GeneralLogArchivUC.resx">
+      <DependentUpon>GeneralLogArchivUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\GeneralView\AuziDUC.resx">
+      <DependentUpon>AuziDUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\GeneralView\BrakeUC.resx">
+      <DependentUpon>BrakeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\GeneralView\CepTpUC.resx">
+      <DependentUpon>CepTpUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\GeneralView\CycleUC.resx">
+      <DependentUpon>CycleUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\GeneralView\LogUC.resx">
+      <DependentUpon>LogUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\GeneralView\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\AuziDSettings.resx">
+      <DependentUpon>AuziDSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\CanSettings.resx">
+      <DependentUpon>CanSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\DebugParametersSettings.resx">
+      <DependentUpon>DebugParametersSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\DefenceDiagramSettings.resx">
+      <DependentUpon>DefenceDiagramSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\KalibrovkaSettings.resx">
+      <DependentUpon>KalibrovkaSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\MainViewSettings.resx">
+      <DependentUpon>MainViewSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\ParametersSettings.resx">
+      <DependentUpon>ParametersSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\Setting\SolveDefenceDiagramSettings.resx">
+      <DependentUpon>SolveDefenceDiagramSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Files\solvedddpoints.prm" />
+    <None Include="Files\solveddparam.prm" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComCan\ML.ComCan.csproj">
+      <Project>{67c27c4e-bc14-4984-8208-3096e3d141d2}</Project>
+      <Name>ML.ComCan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.AdvCan\ML.AdvCan.csproj">
+      <Project>{d104c735-fb7b-41b5-8f9d-294b476d58f9}</Project>
+      <Name>ML.AdvCan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.Can\ML.Can.csproj">
+      <Project>{D52D9682-AE12-4759-A0FC-BC3A42C5C954}</Project>
+      <Name>ML.Can</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.ConfigSettings\ML.ConfigSettings.csproj">
+      <Project>{DF2BBC87-F5D8-4CEE-8446-83CB50EDC8A3}</Project>
+      <Name>ML.ConfigSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.DataExchange\ML.DataExchange.csproj">
+      <Project>{B4A6B5B6-3E1B-4E8B-9A1B-1C5696888F60}</Project>
+      <Name>ML.DataExchange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.DataRepository\ML.DataRepository.csproj">
+      <Project>{7019515e-b730-41ee-ae4d-80bb89612938}</Project>
+      <Name>ML.DataRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Icons\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

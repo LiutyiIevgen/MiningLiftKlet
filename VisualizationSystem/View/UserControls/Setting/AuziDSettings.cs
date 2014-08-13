@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using ML.ConfigSettings.Services;
+using VisualizationSystem.Model;
+
+namespace VisualizationSystem.View.UserControls.Setting
+{
+    public partial class AuziDSettings : UserControl
+    {
+        static int signalsCount = 144;
+        string[] addedSignals = null;
+        string[] signalsNames = null;
+        string[] codes = new string[signalsCount];
+
+        public AuziDSettings()
+        {
+            InitializeComponent();
+            dataGridView1.Rows.Add(signalsCount);
+
+        }
+
+        private void AuziDSettings_Load(object sender, EventArgs e)
+        {
+            InitSignalCodes();
+            addedSignals = IoC.Resolve<MineConfig>().AuziDSignalsConfig.AddedSignals;
+            signalsNames = IoC.Resolve<MineConfig>().AuziDSignalsConfig.SignalsNames;
+
+            //dataGridView1.Rows.Add(signalsCount);
+            foreach (string addSignal in addedSignals)
+            {
+                int index;
+                if (Int32.TryParse(addSignal, out index))
+                    dataGridView1[1, index].Value = true;
+            }
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                dataGridView1[0, i].Value = i;
+                dataGridView1[2, i].Value = codes[i];
+                dataGridView1[3, i].Value = signalsNames[i];
+            }
+        }
+
+        private void InitSignalCodes()
+        {
+            codes[0] = "1-X7DI-1";
+            codes[1] = "1-X7DI-2";
+            codes[2] = "1-X7DI-3";
+            codes[3] = "1-X7DI-4";
+            codes[4] = "1-X7DI-5";
+            codes[5] = "1-X7DI-6";
+            codes[6] = "1-X7DI-7";
+            codes[7] = "1-X7DI-8";
+            codes[8] = "2-X7DI-1";
+            codes[9] = "2-X7DI-2";
+            codes[10] = "2-X7DI-3";
+            codes[11] = "2-X7DI-4";
+            codes[12] = "2-X7DI-5";
+            codes[13] = "2-X7DI-6";
+            codes[14] = "2-X7DI-7";
+            codes[15] = "2-X7DI-8";
+            codes[16] = "3-X7DI-1";
+            codes[17] = "3-X7DI-2";
+            codes[18] = "3-X7DI-3";
+            codes[19] = "3-X7DI-4";
+            codes[20] = "3-X7DI-5";
+            codes[21] = "3-X7DI-6";
+            codes[22] = "3-X7DI-7";
+            codes[23] = "3-X7DI-8";
+            codes[24] = "4-X5IN1-1";
+            codes[25] = "4-X5IN1-2";
+            codes[26] = "4-X5IN1-3";
+            codes[27] = "4-X5IN1-4";
+            codes[28] = "4-X5IN1-5";
+            codes[29] = "4-X5IN1-6";
+            codes[30] = "4-X5IN1-7";
+            codes[31] = "4-X5IN1-8";
+            codes[32] = "4-X10IN2-1";
+            codes[33] = "4-X10IN2-2";
+            codes[34] = "4-X10IN2-3";
+            codes[35] = "4-X10IN2-4";
+            codes[36] = "4-X10IN2-5";
+            codes[37] = "4-X10IN2-6";
+            codes[38] = "4-X10IN2-7";
+            codes[39] = "4-X10IN2-8";
+            codes[40] = "4-X15IN3-1";
+            codes[41] = "4-X15IN3-2";
+            codes[42] = "4-X15IN3-3";
+            codes[43] = "4-X15IN3-4";
+            codes[44] = "4-X15IN3-5";
+            codes[45] = "4-X15IN3-6";
+            codes[46] = "4-X15IN3-7";
+            codes[47] = "4-X15IN3-8";
+            codes[48] = "5-X5IN1-1";
+            codes[49] = "5-X5IN1-2";
+            codes[50] = "5-X5IN1-3";
+            codes[51] = "5-X5IN1-4";
+            codes[52] = "5-X5IN1-5";
+            codes[53] = "5-X5IN1-6";
+            codes[54] = "5-X5IN1-7";
+            codes[55] = "5-X5IN1-8";
+            codes[56] = "5-X10IN2-1";
+            codes[57] = "5-X10IN2-2";
+            codes[58] = "5-X10IN2-3";
+            codes[59] = "5-X10IN2-4";
+            codes[60] = "5-X10IN2-5";
+            codes[61] = "5-X10IN2-6";
+            codes[62] = "5-X10IN2-7";
+            codes[63] = "5-X10IN2-8";
+            codes[64] = "5-X15IN3-1";
+            codes[65] = "5-X15IN3-2";
+            codes[66] = "5-X15IN3-3";
+            codes[67] = "5-X15IN3-4";
+            codes[68] = "5-X15IN3-5";
+            codes[69] = "5-X15IN3-6";
+            codes[70] = "5-X15IN3-7";
+            codes[71] = "5-X15IN3-8";
+            codes[72] = "1-X9DO-1";
+            codes[73] = "1-X9DO-2";
+            codes[74] = "1-X9DO-3";
+            codes[75] = "1-X9DO-4";
+            codes[76] = "1-X9DO-5";
+            codes[77] = "1-X9DO-6";
+            codes[78] = "1-X9DO-7";
+            codes[79] = "1-X9DO-8";
+            codes[80] = "2-X9DO-1";
+            codes[81] = "2-X9DO-2";
+            codes[82] = "2-X9DO-3";
+            codes[83] = "2-X9DO-4";
+            codes[84] = "2-X9DO-5";
+            codes[85] = "2-X9DO-6";
+            codes[86] = "2-X9DO-7";
+            codes[87] = "2-X9DO-8";
+            codes[88] = "3-X9DO-1";
+            codes[89] = "3-X9DO-2";
+            codes[90] = "3-X9DO-3";
+            codes[91] = "3-X9DO-4";
+            codes[92] = "3-X9DO-5";
+            codes[93] = "3-X9DO-6";
+            codes[94] = "3-X9DO-7";
+            codes[95] = "3-X9DO-8";
+            codes[96] = "4-X6OUT1-1";
+            codes[97] = "4-X6OUT1-2";
+            codes[98] = "4-X6OUT1-3";
+            codes[99] = "4-X6OUT1-4";
+            codes[100] = "4-X6OUT1-5";
+            codes[101] = "4-X6OUT1-6";
+            codes[102] = "4-X6OUT1-7";
+            codes[103] = "4-X6OUT1-8";
+            codes[104] = "4-X11OUT2-1";
+            codes[105] = "4-X11OUT2-2";
+            codes[106] = "4-X11OUT2-3";
+            codes[107] = "4-X11OUT2-4";
+            codes[108] = "4-X11OUT2-5";
+            codes[109] = "4-X11OUT2-6";
+            codes[110] = "4-X11OUT2-7";
+            codes[111] = "4-X11OUT2-8";
+            codes[112] = "4-X16OUT3-1";
+            codes[113] = "4-X16OUT3-2";
+            codes[114] = "4-X16OUT3-3";
+            codes[115] = "4-X16OUT3-4";
+            codes[116] = "4-X16OUT3-5";
+            codes[117] = "4-X16OUT3-6";
+            codes[118] = "4-X16OUT3-7";
+            codes[119] = "4-X16OUT3-8";
+            codes[120] = "5-X6OUT1-1";
+            codes[121] = "5-X6OUT1-2";
+            codes[122] = "5-X6OUT1-3";
+            codes[123] = "5-X6OUT1-4";
+            codes[124] = "5-X6OUT1-5";
+            codes[125] = "5-X6OUT1-6";
+            codes[126] = "5-X6OUT1-7";
+            codes[127] = "5-X6OUT1-8";
+            codes[128] = "5-X11OUT2-1";
+            codes[129] = "5-X11OUT2-2";
+            codes[130] = "5-X11OUT2-3";
+            codes[131] = "5-X11OUT2-4";
+            codes[132] = "5-X11OUT2-5";
+            codes[133] = "5-X11OUT2-6";
+            codes[134] = "5-X11OUT2-7";
+            codes[135] = "5-X11OUT2-8";
+            codes[136] = "5-X16OUT3-1";
+            codes[137] = "5-X16OUT3-2";
+            codes[138] = "5-X16OUT3-3";
+            codes[139] = "5-X16OUT3-4";
+            codes[140] = "5-X16OUT3-5";
+            codes[141] = "5-X16OUT3-6";
+            codes[142] = "5-X16OUT3-7";
+            codes[143] = "5-X16OUT3-8";
+        }
+
+        private void buttonApply_Click(object sender, EventArgs e)
+        {
+            int NumAddedInputs = 0;
+            int NumAddedOutputs = 0;
+            List<string> newAddedSignals = new List<string>();
+            string[] newSignalsNames = new string[dataGridView1.RowCount];
+            //int k = 0;
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                newSignalsNames[i] = dataGridView1[3, i].Value.ToString();
+                if (Convert.ToBoolean(dataGridView1[1, i].Value) == true)
+                {
+                    newAddedSignals.Add(i.ToString());
+                    //k++;
+                }
+            }
+            string[] newAddedSignalsMassiv = new string[newAddedSignals.Count];
+            for (int j = 0; j < newAddedSignals.Count; j++)
+            {
+                newAddedSignalsMassiv[j] = newAddedSignals[j];
+            }
+            foreach (string addSignal in newAddedSignalsMassiv)
+            {
+                int index;
+                if (Int32.TryParse(addSignal, out index))
+                {
+                    if (index < 72)
+                        NumAddedInputs++;
+                    else
+                        NumAddedOutputs++;
+                }
+            }
+           /* if (NumAddedInputs > 32)
+            {
+                MessageBox.Show("Выбрано больше 32-х входных сигналов!", "Превышение лимита выбора сигналов", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else if (NumAddedOutputs > 16)
+            {
+                MessageBox.Show("Выбрано больше 16-х выходных сигналов!", "Превышение лимита выбора сигналов", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else
+            { */
+                IoC.Resolve<MineConfig>().AuziDSignalsConfig.AddedSignals = newAddedSignalsMassiv;
+                IoC.Resolve<MineConfig>().AuziDSignalsConfig.SignalsNames = newSignalsNames;
+                MessageBox.Show("Операция выполнена успешно!", "Выбор входных и выходных сигналов", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            //}
+        }
+
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            TextBox tb = (TextBox)e.Control;
+            tb.KeyPress -= tb_KeyPress;
+            tb.KeyPress += new KeyPressEventHandler(tb_KeyPress);
+        }
+        void tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string vlCell = ((TextBox)sender).Text;
+            //bool temp = (vlCell.IndexOf(".") == -1);
+            //проверка ввода
+            if (dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].IsInEditMode == true)
+                if (e.KeyChar == '/')
+                    e.Handled = true;
+        }
+
+    }
+}

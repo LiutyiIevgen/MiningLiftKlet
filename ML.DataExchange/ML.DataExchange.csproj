@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4A6B5B6-3E1B-4E8B-9A1B-1C5696888F60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ML.DataExchange</RootNamespace>
+    <AssemblyName>ML.DataExchange</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CanParser.cs" />
+    <Compile Include="DataExchangeCan.cs" />
+    <Compile Include="Interfaces\IDataExchange.cs" />
+    <Compile Include="Model\CanParameter.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="Model\Parameters.cs" />
+    <Compile Include="DataExchangeFile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DataBaseService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComCan\ML.ComCan.csproj">
+      <Project>{67c27c4e-bc14-4984-8208-3096e3d141d2}</Project>
+      <Name>ML.ComCan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.AdvCan\ML.AdvCan.csproj">
+      <Project>{d104c735-fb7b-41b5-8f9d-294b476d58f9}</Project>
+      <Name>ML.AdvCan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.Can\ML.Can.csproj">
+      <Project>{d52d9682-ae12-4759-a0fc-bc3a42c5c954}</Project>
+      <Name>ML.Can</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.ConfigSettings\ML.ConfigSettings.csproj">
+      <Project>{df2bbc87-f5d8-4cee-8446-83cb50edc8a3}</Project>
+      <Name>ML.ConfigSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ML.DataRepository\ML.DataRepository.csproj">
+      <Project>{7019515e-b730-41ee-ae4d-80bb89612938}</Project>
+      <Name>ML.DataRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
