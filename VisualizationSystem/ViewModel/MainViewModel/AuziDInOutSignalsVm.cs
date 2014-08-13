@@ -221,7 +221,7 @@ namespace VisualizationSystem.ViewModel.MainViewModel
                     if (_leftPerepodiom == 0)
                     {
                         var dataBaseService = new DataBaseService();
-                        dataBaseService.FillGeneralLog("Левый переподъём", "Левый переподъём", GeneralLogEventType.Demage);
+                        dataBaseService.FillGeneralLog("Левый переподъём ФПК", "Левый переподъём ФПК", GeneralLogEventType.Demage);
                     }
                     _leftPerepodiom = 1;
                 }
@@ -234,7 +234,7 @@ namespace VisualizationSystem.ViewModel.MainViewModel
                     if (_rightPerepodiom == 0)
                     {
                         var dataBaseService = new DataBaseService();
-                        dataBaseService.FillGeneralLog("Правый переподъём", "Правый переподъём", GeneralLogEventType.Demage);
+                        dataBaseService.FillGeneralLog("Правый переподъём ФПК", "Правый переподъём ФПК", GeneralLogEventType.Demage);
                     }
                     _rightPerepodiom = 1;
                 }
