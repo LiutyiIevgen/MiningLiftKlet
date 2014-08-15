@@ -19,6 +19,7 @@ namespace ML.ConfigSettings.Services
         public AuziDSignalsConfigSection AuziDSignalsConfig { get; set; }
         public ParametersConfigSection ParametersConfig { get; set; }
         public BrakeSystemConfigSection BrakeSystemConfig { get; set; }
+        public KletConfigSection KletConfig { get; set; }
 
         protected override MineConfig GetObject()
         {
@@ -87,6 +88,12 @@ namespace ML.ConfigSettings.Services
                 AdcMaximum = new SimpleParameter() {Value = 5},
                 AdcValueToBarrKoef = new SimpleParameter() {Value = 1}
             };
+            KletConfig = new KletConfigSection()
+            {
+                KletLevelsCount = new SimpleParameter() { Value = 1 },
+                FirstLevelHight = new SimpleParameter() { Value = 0 },
+                SecondLevelHight = new SimpleParameter() { Value = 0 }
+            };
         }
 
         protected override void CopyObject(MineConfig config)
@@ -100,6 +107,7 @@ namespace ML.ConfigSettings.Services
             AuziDSignalsConfig = config.AuziDSignalsConfig;
             ParametersConfig = config.ParametersConfig;
             BrakeSystemConfig = config.BrakeSystemConfig;
+            KletConfig = config.KletConfig;
         }
 
     }

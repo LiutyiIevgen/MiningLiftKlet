@@ -231,6 +231,7 @@ namespace VisualizationSystem.View.UserControls.GeneralView
             _leftDopPanelVm.GetDopRulePointerLine().ForEach(pl => gd.DrawLine(pl.Pen, pl.FirstPoint, pl.SecondPoint));
             _leftDopPanelVm.GetDopRulePointer().ForEach(p => gd.DrawPolygon(p.Pen, p.Triangle));
             _leftDopPanelVm.GetDopRuleFillPointer().ForEach(fp => gd.FillPolygon(fp.Brush, fp.Triangle));
+            _leftDopPanelVm.GetDopRuleLevelsInscription().ForEach(s => gd.DrawString(s.Text, s.Font, s.Brush, s.Position));
             _leftDopPanelVm.GetDopRulePanelBorderLine().ForEach(c => gd.DrawRectangle(c.Pen, c.LeftTopX, c.LeftTopY, c.Width, c.Height));
             gd.Dispose();
             panel6.Invalidate();
@@ -248,6 +249,7 @@ namespace VisualizationSystem.View.UserControls.GeneralView
             _rightDopPanelVm.GetDopRulePointerLine().ForEach(pl => grd.DrawLine(pl.Pen, pl.FirstPoint, pl.SecondPoint));
             _rightDopPanelVm.GetDopRulePointer().ForEach(p => grd.DrawPolygon(p.Pen, p.Triangle));
             _rightDopPanelVm.GetDopRuleFillPointer().ForEach(fp => grd.FillPolygon(fp.Brush, fp.Triangle));
+            _rightDopPanelVm.GetDopRuleLevelsInscription().ForEach(s => grd.DrawString(s.Text, s.Font, s.Brush, s.Position));
             _rightDopPanelVm.GetDopRulePanelBorderLine().ForEach(c => grd.DrawRectangle(c.Pen, c.LeftTopX, c.LeftTopY, c.Width, c.Height));
             grd.Dispose();
             panel7.Invalidate();

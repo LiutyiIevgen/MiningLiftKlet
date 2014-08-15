@@ -37,6 +37,11 @@ namespace VisualizationSystem.View.UserControls.Setting
             textBoxAdcZero.Text = Convert.ToString(IoC.Resolve<MineConfig>().BrakeSystemConfig.AdcZero.Value, CultureInfo.GetCultureInfo("en-US"));
             textBoxAdcMaximum.Text = Convert.ToString(IoC.Resolve<MineConfig>().BrakeSystemConfig.AdcMaximum.Value, CultureInfo.GetCultureInfo("en-US"));
             textBoxAdcValueToBarrKoef.Text = Convert.ToString(IoC.Resolve<MineConfig>().BrakeSystemConfig.AdcValueToBarrKoef.Value, CultureInfo.GetCultureInfo("en-US"));
+
+            comboBoxKletLevelsCount.SelectedIndex = Convert.ToInt32(IoC.Resolve<MineConfig>().KletConfig.KletLevelsCount.Value) - 1;
+            textBox1to2distance.Text = Convert.ToString(IoC.Resolve<MineConfig>().KletConfig.FirstLevelHight.Value, CultureInfo.GetCultureInfo("en-US"));
+            textBox2to3distance.Text = Convert.ToString(IoC.Resolve<MineConfig>().KletConfig.SecondLevelHight.Value, CultureInfo.GetCultureInfo("en-US"));
+            CheckKLetLevels();
         }
 
         private void maxSpeedTextBox_TextChanged(object sender, EventArgs e)
@@ -314,6 +319,57 @@ namespace VisualizationSystem.View.UserControls.Setting
                 IoC.Resolve<MineConfig>().BrakeSystemConfig.AdcValueToBarrKoef.Value = 0;
             else
                 IoC.Resolve<MineConfig>().BrakeSystemConfig.AdcValueToBarrKoef.Value = Convert.ToDouble(textBoxAdcValueToBarrKoef.Text, CultureInfo.GetCultureInfo("en-US"));
+        }
+        
+        // Klet
+        private void comboBoxKletLevelsCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IoC.Resolve<MineConfig>().KletConfig.KletLevelsCount.Value = comboBoxKletLevelsCount.SelectedIndex + 1;
+            CheckKLetLevels();
+        }
+
+        private void textBox1to2distance_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1to2distance.Text == "" || textBox1to2distance.Text == ".")
+                IoC.Resolve<MineConfig>().KletConfig.FirstLevelHight.Value = 0;
+            else
+                IoC.Resolve<MineConfig>().KletConfig.FirstLevelHight.Value = Convert.ToDouble(textBox1to2distance.Text, CultureInfo.GetCultureInfo("en-US"));
+        }
+
+        private void textBox2to3distance_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2to3distance.Text == "" || textBox2to3distance.Text == ".")
+                IoC.Resolve<MineConfig>().KletConfig.SecondLevelHight.Value = 0;
+            else
+                IoC.Resolve<MineConfig>().KletConfig.SecondLevelHight.Value = Convert.ToDouble(textBox2to3distance.Text, CultureInfo.GetCultureInfo("en-US"));
+        }
+
+        private void CheckKLetLevels()
+        {
+            if (comboBoxKletLevelsCount.SelectedIndex + 1 == 1)
+            {
+                IoC.Resolve<MineConfig>().KletConfig.FirstLevelHight.Value = 0;
+                textBox1to2distance.Text = "0";
+                textBox1to2distance.ReadOnly = true;
+                IoC.Resolve<MineConfig>().KletConfig.SecondLevelHight.Value = 0;
+                textBox2to3distance.Text = "0";
+                textBox2to3distance.ReadOnly = true;
+            }
+            else if (comboBoxKletLevelsCount.SelectedIndex + 1 == 2)
+            {
+                IoC.Resolve<MineConfig>().KletConfig.SecondLevelHight.Value = 0;
+                textBox2to3distance.Text = "0";
+                textBox2to3distance.ReadOnly = true;
+                textBox1to2distance.ReadOnly = false;
+                textBox1to2distance.Text = Convert.ToString(IoC.Resolve<MineConfig>().KletConfig.FirstLevelHight.Value, CultureInfo.GetCultureInfo("en-US"));
+            }
+            else if (comboBoxKletLevelsCount.SelectedIndex + 1 == 3)
+            {
+                textBox1to2distance.ReadOnly = false;
+                textBox1to2distance.Text = Convert.ToString(IoC.Resolve<MineConfig>().KletConfig.FirstLevelHight.Value, CultureInfo.GetCultureInfo("en-US"));
+                textBox2to3distance.ReadOnly = false;
+                textBox2to3distance.Text = Convert.ToString(IoC.Resolve<MineConfig>().KletConfig.SecondLevelHight.Value, CultureInfo.GetCultureInfo("en-US"));
+            }
         }
         //
 

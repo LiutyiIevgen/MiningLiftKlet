@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using ML.ConfigSettings.Model;
 using ML.ConfigSettings.Services;
 using ML.DataExchange.Model;
 using VisualizationSystem.Model;
@@ -18,8 +19,10 @@ namespace VisualizationSystem.ViewModel.MainViewModel
             pen = new Pen(Color.Black, 2);
             red_pen = new Pen(Color.Red, 1);
             drawFont_two = new Font("Arial", 16);
+            levelsFont = new Font("Arial", 10);
             black = new SolidBrush(Color.Black);
             red = new SolidBrush(Color.Red);
+            white = new SolidBrush(Color.WhiteSmoke);
 
             RuleDatas = new List<RuleData>();
             RuleInscriptions = new List<RuleInscription>();
@@ -27,6 +30,7 @@ namespace VisualizationSystem.ViewModel.MainViewModel
             RulePointer = new List<Pointer>();
             RuleFillPointer = new List<FillPointer>();
             PanelBorderLine = new List<BorderLine>();
+            LevelsInscriptions = new List<RuleInscription>();
         }
 
         public void InitVm(Parameters parameters)
@@ -37,6 +41,7 @@ namespace VisualizationSystem.ViewModel.MainViewModel
             RulePointer.Clear();
             RuleFillPointer.Clear();
             PanelBorderLine.Clear();
+            LevelsInscriptions.Clear();
 
             _parameters = parameters;
             SetLength();
@@ -207,6 +212,85 @@ namespace VisualizationSystem.ViewModel.MainViewModel
                                 new Point(15, panelHeight / 2 + 10)
                             }
                     });
+                LevelsInscriptions.Add(new RuleInscription
+                {
+                    Text = "1",
+                    Font = levelsFont,
+                    Brush = white,
+                    Position = new Point(15, panelHeight / 2 - 8)
+                });
+                if (_mineConfig.KletConfig.KletLevelsCount.Value > 1 && _mineConfig.MainViewConfig.RightSosud == SosudType.Skip)
+                {
+                    RulePointerLine.Add(new RuleData
+                    {
+                        Pen = red_pen,
+                        FirstPoint = new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value)),
+                        SecondPoint = new Point(x2_long, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value))
+                    });
+                    RulePointer.Add(new Pointer
+                    {
+                        Pen = red_pen,
+                        Triangle = new Point[3]
+                            {
+                                new Point(40, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value)),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value) - 10),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value) + 10)
+                            }
+                    });
+                    RuleFillPointer.Add(new FillPointer
+                    {
+                        Brush = red,
+                        Triangle = new Point[3]
+                            {
+                                new Point(40, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value)),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value) - 10),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value) + 10)
+                            }
+                    });
+                    LevelsInscriptions.Add(new RuleInscription
+                    {
+                        Text = "2",
+                        Font = levelsFont,
+                        Brush = white,
+                        Position = new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * _mineConfig.KletConfig.FirstLevelHight.Value) - 8)
+                    });
+                }
+                if (_mineConfig.KletConfig.KletLevelsCount.Value > 2 && _mineConfig.MainViewConfig.RightSosud == SosudType.Skip)
+                {
+                    RulePointerLine.Add(new RuleData
+                    {
+                        Pen = red_pen,
+                        FirstPoint = new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value))),
+                        SecondPoint = new Point(x2_long, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value)))
+                    });
+                    RulePointer.Add(new Pointer
+                    {
+                        Pen = red_pen,
+                        Triangle = new Point[3]
+                            {
+                                new Point(40, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value))),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value)) - 10),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value)) + 10)
+                            }
+                    });
+                    RuleFillPointer.Add(new FillPointer
+                    {
+                        Brush = red,
+                        Triangle = new Point[3]
+                            {
+                                new Point(40, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value))),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value)) - 10),
+                                new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value)) + 10)
+                            }
+                    });
+                    LevelsInscriptions.Add(new RuleInscription
+                    {
+                        Text = "3",
+                        Font = levelsFont,
+                        Brush = white,
+                        Position = new Point(15, Convert.ToInt32(panelHeight / 2 - pixel_pro_ten_santimeter * (_mineConfig.KletConfig.FirstLevelHight.Value + _mineConfig.KletConfig.SecondLevelHight.Value)) - 8)
+                    });
+                }
             }
             return RulePointerLine;
         }
@@ -220,7 +304,10 @@ namespace VisualizationSystem.ViewModel.MainViewModel
         {
             return RuleFillPointer;
         }
-
+        public List<RuleInscription> GetDopRuleLevelsInscription()
+        {
+            return LevelsInscriptions;
+        }
         public List<BorderLine> GetDopRulePanelBorderLine()
         {
             if (_parameters.v <= _mineConfig.MainViewConfig.MaxDopRuleSpeed.Value)
@@ -242,8 +329,10 @@ namespace VisualizationSystem.ViewModel.MainViewModel
             pen.Dispose();
             red_pen.Dispose();
             drawFont_two.Dispose();
+            levelsFont.Dispose();
             black.Dispose();
             red.Dispose();
+            white.Dispose();
         }
 
         public List<RuleData> RuleDatas { get; private set; }
@@ -252,6 +341,7 @@ namespace VisualizationSystem.ViewModel.MainViewModel
         public List<Pointer> RulePointer { get; private set; }
         public List<FillPointer> RuleFillPointer { get; private set; }
         public List<BorderLine> PanelBorderLine { get; private set; }
+        public List<RuleInscription> LevelsInscriptions { get; private set; }
 
         private Parameters _parameters;
         private MineConfig _mineConfig;
@@ -272,7 +362,9 @@ namespace VisualizationSystem.ViewModel.MainViewModel
         private Pen pen;
         private Pen red_pen;
         private Font drawFont_two;
+        private Font levelsFont;
         private SolidBrush black;
         private SolidBrush red;
+        private SolidBrush white;
     }
 }
